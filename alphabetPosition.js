@@ -7,12 +7,13 @@ function alphabetPosition(text) {
         n: 14, o: 15, p: 16, q: 17, r: 18, s: 19, t: 20, u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
     }
      
-    // Get alphabets without position
+    // Remove spaces and other non numerical or alphabeticall digits
     let spacesApostrophePeriodRemoved = text.replace(/[^0-9a-zA-Z]/gi, '').toLowerCase();
     
+    // Get alphabets without position
     let regex = /[a-z]/gi;
     
-    // Match it with given test inputs
+    // Match it with given test inputs: does matched_array matches any digits in regex?
     let matched_array = spacesApostrophePeriodRemoved.match(regex)
     
     // Identify corresponding numbers and return
