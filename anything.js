@@ -90,6 +90,7 @@ function traverseTree(){
         if(!rootMain) return [];
         let paths = [];
         let str = 0;
+        let results = 0;
 //          A
 //        /   \
 //       B     C
@@ -97,13 +98,14 @@ function traverseTree(){
 //     D     E    F
 
         recurse(rootMain, str);
-        return paths;
+        return results;
 
         // RECURSIVE FUNCTION
         function recurse(root, path){
           path += root.val;
           if(!root.left && !root.right){ // LEAF NODE
-            paths.push(path);
+            // paths.push(path);
+            results+=path
             return;
           }
           if(root.left) recurse(root.left, path);
