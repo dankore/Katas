@@ -73,24 +73,28 @@ function Node(val){
     this.left = null;
     this.right = null;
 }
-    //      A
+//          A
 //        /   \
 //       B     C
 //      /     /  \
 //     D     E    F
 function traverseTree(){
-     let rootMain = new Node("A");
-         rootMain.left = new Node("B");
-         rootMain.left.left = new Node("D");
+     let rootMain = new Node(3);
+         rootMain.left = new Node(2);
+         rootMain.left.left = new Node(1);
          
-         rootMain.right = new Node("C");
-         rootMain.right.left = new Node("E");
-         rootMain.right.right = new Node("F");
+         rootMain.right = new Node(2);
+         rootMain.right.left = new Node(3);
+         rootMain.right.right = new Node(5);
   
         if(!rootMain) return [];
         let paths = [];
-        let str = ''
-      
+        let str = 0;
+//          A
+//        /   \
+//       B     C
+//      /     /  \
+//     D     E    F
 
         recurse(rootMain, str);
         return paths;
@@ -98,9 +102,7 @@ function traverseTree(){
         // RECURSIVE FUNCTION
         function recurse(root, path){
           path += root.val;
-          
           if(!root.left && !root.right){ // LEAF NODE
-            console.log(path)
             paths.push(path);
             return;
           }
