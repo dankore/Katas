@@ -1,18 +1,18 @@
 // HELPER
 function findSmallestElementIndex(arr) {
   let smallestElement = arr[0];
-  let smallest_index = 0;
+  let smallestElement_index = 0;
 
   for (let i = 1; i < arr.length; i++) {
     const element = arr[i];
 
     if (element < smallestElement) {
       smallestElement = element;
-      smallest_index = i;
+      smallestElement_index = i;
     }
   }
-  
-  return smallest_index;
+
+  return smallestElement_index;
 }
 
 // MAIN
