@@ -29,7 +29,7 @@
 
 //     function compareArrays(a, b){
 //         for (let i = 0; i < a.length; i++) {
-//             if(a[i] !== b[i]) return false;            
+//             if(a[i] !== b[i]) return false;
 //         }
 //         return true;
 //     };
@@ -54,7 +54,7 @@
 //     }
 
 // console.log(compareTrees())
-// Given this tree, write code that will print the given output. 
+// Given this tree, write code that will print the given output.
 
 //          A
 //        /   \
@@ -67,51 +67,50 @@
 //check if root !null
 //tree.left
 
-
-function Node(val){
-    this.val = val;
-    this.left = null;
-    this.right = null;
+function Node(val) {
+  this.val = val;
+  this.left = null;
+  this.right = null;
 }
 //          A
 //        /   \
 //       B     C
 //      /     /  \
 //     D     E    F
-function traverseTree(){
-     let rootMain = new Node(3);
-         rootMain.left = new Node(2);
-         rootMain.left.left = new Node(1);
-         
-         rootMain.right = new Node(2);
-         rootMain.right.left = new Node(3);
-         rootMain.right.right = new Node(5);
-  
-        if(!rootMain) return [];
-        let paths = [];
-        let str = 0;
-        let results = 0;
-//          A
-//        /   \
-//       B     C
-//      /     /  \
-//     D     E    F
+function traverseTree() {
+  let rootMain = new Node("A");
+  rootMain.left = new Node("B");
+  rootMain.left.left = new Node("C");
 
-        recurse(rootMain, str);
-        return results;
+  rootMain.right = new Node("D");
+  rootMain.right.left = new Node("E");
+  rootMain.right.right = new Node("F");
 
-        // RECURSIVE FUNCTION
-        function recurse(root, path){
-          path += root.val;
-          if(!root.left && !root.right){ // LEAF NODE
-            // paths.push(path);
-            results+=path
-            return;
-          }
-          if(root.left) recurse(root.left, path);
-          if(root.right) recurse(root.right, path);
-        }
-       
+  if (!rootMain) return [];
+  let paths = [];
+  let str = "";
+  let results = "";
+  //          A
+  //        /   \
+  //       B     C
+  //      /     /  \
+  //     D     E    F
+
+  recurse(rootMain, str);
+  return results;
+
+  // RECURSIVE FUNCTION
+  function recurse(root, path) {
+    path += root.val;
+    if (!root.left && !root.right) {
+      // LEAF NODE
+      console.log(path);
+      results += path;
+      return;
+    }
+    if (root.left) recurse(root.left, path);
+    if (root.right) recurse(root.right, path);
+  }
 }
 
 console.log(traverseTree());
@@ -120,11 +119,6 @@ console.log(traverseTree());
 // SPACE : O(N);
 // Sample output:
 
-// ABD 
-// ACE 
+// ABD
+// ACE
 // ACF
-
-
-
-
-
